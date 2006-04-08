@@ -1,0 +1,24 @@
+---
+name: Test-Run-Plugin-ColorSummary
+version: 0.0100_00
+author:
+  - Shlomi Fish <shlomif@iglu.org.il>
+abstract: |-
+  A Test::Run plugin that
+  colors the summary.
+license: bsd
+resources:
+  license: http://www.opensource.org/licenses/bsd-license.php
+requires:
+  Scalar::Util: 0
+  Term::ANSIColor: 0
+  Test::More: 0
+  Test::Run::Obj: 0
+provides:
+  Test::Run::Plugin::ColorSummary:
+    file: lib/Test/Run/Plugin/ColorSummary.pm
+    version: 0.0100_00
+generated_by: Module::Build version 0.2704
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
