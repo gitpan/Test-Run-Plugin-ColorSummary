@@ -1,6 +1,6 @@
 ---
 name: Test-Run-Plugin-ColorSummary
-version: 0.0100_00
+version: 0.0100_02
 author:
   - Shlomi Fish <shlomif@iglu.org.il>
 abstract: |-
@@ -17,7 +17,7 @@ requires:
 provides:
   Test::Run::Plugin::ColorSummary:
     file: lib/Test/Run/Plugin/ColorSummary.pm
-    version: 0.0100_00
+    version: 0.0100_02
 generated_by: Module::Build version 0.2704
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
