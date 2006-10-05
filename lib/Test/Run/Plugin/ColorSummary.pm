@@ -5,7 +5,8 @@ use strict;
 
 use NEXT;
 use Term::ANSIColor;
-use Scalar::Util ();
+# Needed for ->autoflush()
+use IO::Handle;
 
 use base 'Test::Run::Base';
 use base 'Class::Accessor';
@@ -17,7 +18,7 @@ colors the summary.
 
 =cut
 
-our $VERSION = '0.0100_02';
+our $VERSION = '0.0100_03';
 
 __PACKAGE__->mk_accessors(qw(
     summary_color_failure
@@ -67,11 +68,13 @@ sub _get_default_success_summary_color
     @ISA = (qw(Test::Run::Plugin::ColorSummary Test::Run::Obj));
 
     my $tester = MyTestRun->new(
-        test_files => 
-        [
-            "t/sample-tests/one-ok.t",
-            "t/sample-tests/several-oks.t"
-        ],
+        {
+            test_files => 
+            [
+                "t/sample-tests/one-ok.t",
+                "t/sample-tests/several-oks.t"
+            ],
+        }
         );
 
     $tester->runtests();
@@ -112,17 +115,13 @@ the documentation is the code.
 
 sub _handle_runtests_error_text
 {
-    my $self = shift;
-    my (%args) = @_;
-    my $text = $args{'text'};
+    my ($self, $args) = @_;
 
-    print STDERR color($self->_get_failure_summary_color());
-    print STDERR $text;
-    print STDERR color("reset");
-    # Workaround to make sure color("reset") is accepted and a red cursor
-    # is not displayed.
-    print STDERR "\n";
-    die "\n";
+    my $text = $args->{'text'};
+
+    STDERR->autoflush();
+    $text =~ s{\n\z}{};
+    die color($self->_get_failure_summary_color()).$text.color("reset")."\n";  
 }
 
 1;

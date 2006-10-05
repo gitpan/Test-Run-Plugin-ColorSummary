@@ -14,7 +14,7 @@ use vars qw(@ISA);
 
 package main;
 
-use Test::More tests => 6;
+use Test::More tests => 4;
 
 use Term::ANSIColor;
 
@@ -24,11 +24,13 @@ use Term::ANSIColor;
     open STDOUT, ">&ALTOUT";
 
     my $tester = MyTestRun->new(
-        test_files => 
-        [
-            "t/sample-tests/one-ok.t",
-            "t/sample-tests/several-oks.t"
-        ],
+        {
+            test_files => 
+            [
+                "t/sample-tests/one-ok.t",
+                "t/sample-tests/several-oks.t"
+            ],
+        }
         );
 
     $tester->runtests();
@@ -55,10 +57,12 @@ use Term::ANSIColor;
     open STDERR, ">&ALTERR";
 
     my $tester = MyTestRun->new(
-        test_files => 
-        [
-            "t/sample-tests/one-fail.t",
-        ],
+        {
+            test_files => 
+            [
+                "t/sample-tests/one-fail.t",
+            ],
+        }
         );
 
     eval {
@@ -75,16 +79,12 @@ use Term::ANSIColor;
     close(SAVEERR);
     close(ALTERR);
 
-    my $err_text = do { local $/; local *I; open I, "<", "alterr.txt"; <I>};
-
     my $color = color("bold red");
 
     # TEST
-    ok (($err_text =~ m/\Q${color}\EFailed 1\/1 test scripts/), 
+    ok (($err =~ m/\Q${color}\EFailed 1\/1 test scripts/), 
         qq{Found colored "Failed 1/1" string});
 
-    # TEST
-    ok ($err, qq{Exited with an exception});
 }
 
 {
@@ -93,13 +93,15 @@ use Term::ANSIColor;
     open STDOUT, ">&ALTOUT";
 
     my $tester = MyTestRun->new(
-        test_files => 
-        [
-            "t/sample-tests/one-ok.t",
-            "t/sample-tests/several-oks.t"
-        ],
-        summary_color_success => "green",
-        summary_color_failure => "yellow",
+        {
+            test_files => 
+            [
+                "t/sample-tests/one-ok.t",
+                "t/sample-tests/several-oks.t"
+            ],
+            summary_color_success => "green",
+            summary_color_failure => "yellow",
+        }
         );
 
     $tester->runtests();
@@ -127,12 +129,14 @@ use Term::ANSIColor;
     open STDERR, ">&ALTERR";
 
     my $tester = MyTestRun->new(
-        test_files => 
-        [
-            "t/sample-tests/one-fail.t",
-        ],
-        summary_color_success => "green",
-        summary_color_failure => "yellow",
+        {
+            test_files => 
+            [
+                "t/sample-tests/one-fail.t",
+            ],
+            summary_color_success => "green",
+            summary_color_failure => "yellow",
+        }
         );
 
     eval {
@@ -153,8 +157,6 @@ use Term::ANSIColor;
     my $color = color("yellow");
 
     # TEST
-    ok (($err_text =~ m/\Q${color}\EFailed 1\/1 test scripts/), 
+    ok (($err =~ m/\Q${color}\EFailed 1\/1 test scripts/), 
         qq{Found colored "Failed 1/1" string with user-specified color});
-    # TEST
-    ok ($err, qq{Exited with an exception});
 }
