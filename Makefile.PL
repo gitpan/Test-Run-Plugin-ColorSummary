@@ -10,7 +10,10 @@ WriteMakefile
           'PREREQ_PM' => {
                            'Test::More' => 0,
                            'Scalar::Util' => 0,
+                           'Test::Run::CmdLine' => 0,
                            'Term::ANSIColor' => 0,
+                           'Test::Run::CmdLine::Trap::ProveApp' => 0,
+                           'Test::Run::Trap::Obj' => 0,
                            'Test::Run::Obj' => 0
                          }
         )

@@ -16,23 +16,23 @@ use base 'Class::Accessor';
 Test::Run::Plugin::ColorSummary - A Test::Run plugin that
 colors the summary.
 
+=head1 VERSION
+
+0.0102
+
 =cut
 
-our $VERSION = '0.0101';
+our $VERSION = '0.0102';
 
 __PACKAGE__->mk_accessors(qw(
     summary_color_failure
     summary_color_success
 ));
 
-sub _get_simple_params
+sub _get_private_simple_params
 {
     my $self = shift;
-    return 
-    [
-        qw(summary_color_failure summary_color_success), 
-        @{$self->NEXT::_get_simple_params()}
-    ];
+    return [qw(summary_color_failure summary_color_success)];
 }
 
 sub _get_failure_summary_color
