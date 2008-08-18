@@ -8,13 +8,14 @@ WriteMakefile
           'EXE_FILES' => [],
           'VERSION_FROM' => 'lib/Test/Run/Plugin/ColorSummary.pm',
           'PREREQ_PM' => {
-                           'Test::More' => 0,
                            'Scalar::Util' => 0,
-                           'Test::Run::CmdLine' => 0,
+                           'Test::Run::CmdLine' => '0.0108',
                            'Term::ANSIColor' => 0,
-                           'Test::Run::CmdLine::Trap::ProveApp' => 0,
                            'Test::Run::Trap::Obj' => 0,
-                           'Test::Run::Obj' => 0
+                           'Test::Run::Obj' => 0,
+                           'Test::More' => 0,
+                           'Test::Run::Core' => '0.0117',
+                           'Test::Run::CmdLine::Trap::ProveApp' => 0
                          }
         )
 ;

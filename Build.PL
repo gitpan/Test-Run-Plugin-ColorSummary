@@ -8,7 +8,7 @@ use Test::Run::Builder;
 
 my $builder = Test::Run::Builder->new(
     module_name         => 'Test::Run::Plugin::ColorSummary',
-    license             => 'bsd',
+    license             => 'mit',
     dist_author         => 'Shlomi Fish <shlomif@iglu.org.il>',
     dist_version_from   => 'lib/Test/Run/Plugin/ColorSummary.pm',
     build_requires =>
@@ -21,7 +21,8 @@ my $builder = Test::Run::Builder->new(
         'Term::ANSIColor' => 0,
         'Scalar::Util' => 0,
         'Test::Run::Obj' => 0,
-        'Test::Run::CmdLine' => 0,
+        'Test::Run::Core' => '0.0117',
+        'Test::Run::CmdLine' => '0.0108',
     },
     add_to_cleanup      => [ 'Test-Run-Plugin-ColorSummary-*' ],
     create_makefile_pl => 'traditional',
