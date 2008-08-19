@@ -9,7 +9,7 @@ WriteMakefile
           'VERSION_FROM' => 'lib/Test/Run/Plugin/ColorSummary.pm',
           'PREREQ_PM' => {
                            'Scalar::Util' => 0,
-                           'Test::Run::CmdLine' => '0.0108',
+                           'Test::Run::CmdLine' => '0.0110',
                            'Term::ANSIColor' => 0,
                            'Test::Run::Trap::Obj' => 0,
                            'Test::Run::Obj' => 0,
