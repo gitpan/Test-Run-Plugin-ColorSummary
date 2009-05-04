@@ -1,6 +1,6 @@
 ---
 name: Test-Run-Plugin-ColorSummary
-version: 0.0104
+version: 0.0105
 author:
   - 'Shlomi Fish <shlomif@iglu.org.il>'
 abstract: |-
@@ -8,13 +8,13 @@ abstract: |-
   colors the summary.
 license: mit
 resources:
-  license: http://opensource.org/licenses/mit-license.php
+  license: http://www.opensource.org/licenses/mit-license.php
 requires:
   Scalar::Util: 0
   Term::ANSIColor: 0
   Test::More: 0
-  Test::Run::CmdLine: 0.0110
-  Test::Run::Core: 0.0117
+  Test::Run::CmdLine: 0.0111
+  Test::Run::Core: 0.0118
   Test::Run::Obj: 0
 build_requires:
   Test::Run::CmdLine::Trap::ProveApp: 0
@@ -22,11 +22,11 @@ build_requires:
 provides:
   Test::Run::CmdLine::Plugin::ColorSummary:
     file: lib/Test/Run/CmdLine/Plugin/ColorSummary.pm
-    version: 0.0102
+    version: 0.0103
   Test::Run::Plugin::ColorSummary:
     file: lib/Test/Run/Plugin/ColorSummary.pm
-    version: 0.0104
-generated_by: Module::Build version 0.2808
+    version: 0.0105
+generated_by: Module::Build version 0.32
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2
