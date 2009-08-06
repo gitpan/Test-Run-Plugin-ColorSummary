@@ -3,13 +3,14 @@ package Test::Run::Plugin::ColorSummary;
 use warnings;
 use strict;
 
+use Moose;
+
 use MRO::Compat;
 use Term::ANSIColor;
 # Needed for ->autoflush()
 use IO::Handle;
 
-use base 'Test::Run::Base';
-use base 'Class::Accessor';
+extends('Test::Run::Base');
 
 =head1 NAME
 
@@ -18,16 +19,14 @@ colors the summary.
 
 =head1 VERSION
 
-0.0105
+0.0120
 
 =cut
 
-our $VERSION = '0.0105';
+our $VERSION = '0.0120';
 
-__PACKAGE__->mk_accessors(qw(
-    summary_color_failure
-    summary_color_success
-));
+has 'summary_color_failure' => (is => "rw", isa => "Str");
+has 'summary_color_success' => (is => "rw", isa => "Str");
 
 sub _get_private_simple_params
 {
