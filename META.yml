@@ -1,5 +1,5 @@
 ---
-abstract: "A Test::Run plugin that\ncolors the summary."
+abstract: 'A Test::Run plugin that'
 author:
   - 'Shlomi Fish <shlomif@iglu.org.il>'
 build_requires:
@@ -7,7 +7,8 @@ build_requires:
   Test::Run::Trap::Obj: 0
 configure_requires:
   Module::Build: 0.36
-generated_by: 'Module::Build version 0.3603'
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4005, CPAN::Meta::Converter version 2.131560'
 license: mit
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -16,10 +17,10 @@ name: Test-Run-Plugin-ColorSummary
 provides:
   Test::Run::CmdLine::Plugin::ColorSummary:
     file: lib/Test/Run/CmdLine/Plugin/ColorSummary.pm
-    version: 0.0121
+    version: 0.0200
   Test::Run::Plugin::ColorSummary:
     file: lib/Test/Run/Plugin/ColorSummary.pm
-    version: 0.0121
+    version: 0.0200
 requires:
   Scalar::Util: 0
   Term::ANSIColor: 0
@@ -29,4 +30,4 @@ requires:
   Test::Run::Obj: 0
 resources:
   license: http://www.opensource.org/licenses/mit-license.php
-version: 0.0121
+version: 0.0200
